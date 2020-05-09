@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../mesto/pages/index.css">
+	<script></script>
+	<title>Mesto</title>
+</head>
+
+<body>
+	<div class="page">
+		<section class="content">
+			<header class="header">
+				<img class="header__logo" src="./images/Logo-header.png" alt="Место логотип">
+				<div class="header__line">
+				</div>
+			</header>
+
+			<!--+++++++Форма всплывающего окна+++++++++-->
+
+			<section class="popup">
+				<div class="popup__content">
+					<img class="popup__close" src="./images/Close-Icon.png" alt="закрыть">
+					<h3 class="popup__title">Редактировать профиль</h3>
+					<form class="popup__form" name="profile">
+						<input class="popup__input popup__input-edit-name" name="name" type="text">
+						<input class="popup__input popup__input-edit-about" name="about" type="text">
+						<button class="button popup__save-button">Сохранить</button>
+					</form>
+				</div>
+			</section>
+
+			<!--+++++++Информация о пользователе+++++++++-->
+
+			<section class="profile">
+				<img class="profile__avatar" src="./images/Cousto-avatar.jpg" alt="Кусто">
+				<div class="profile__info">
+					<div class="profile__title">
+						<h1 class="profile__title-text">Жак-Ив Кусто</h1>
+						<button class="profile__edit-button">
+							<img class="profile__edit-button-logo" src="./images/logo-subbutton.png" alt="кнопка">
+						</button>
+					</div>
+					<p class="profile__subtitle-text">Исследователь океана</p>
+				</div>
+				<button class="profile__add-button">
+					<img class="profile__add-button-logo" src="./images/logo-button.png" alt="кнопка">
+				</button>
+			</section>
+
+			<!--+++++++Карточки пользователя+++++++++-->
+
+			<section class="elements">
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/New-York.jpg" alt="Нью-Йорк">
+					<div class="elements__description">
+						<h3 class="elements__title">Нью-Йорк</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/Santorini.jpg" alt="Санторини">
+					<div class="elements__description">
+						<h3 class="elements__title">Санторини</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/Гренобль.jpg" alt="Гренобль">
+					<div class="elements__description">
+						<h3 class="elements__title">Гренобль</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/Notre-damm.jpg" alt="Нотр Дамм">
+					<div class="elements__description">
+						<h3 class="elements__title">Нотр Дам</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/Alaska.jpg" alt="Аляска">
+					<div class="elements__description">
+						<h3 class="elements__title">Аляска</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+				<div class="elements__card">
+					<img class="elements__pic" src="./images/Holliwood.jpg" alt="Голливуд">
+					<div class="elements__description">
+						<h3 class="elements__title">Голливуд</h3>
+						<button class="elements__like-button">
+							<img class="elements__like-pic" src="./images/like.png" alt="лайк">
+						</button>
+					</div>
+				</div>
+
+			</section>
+
+			<footer class="footer">
+				<p class="footer__text">&copy;2020 Mesto Russia</p>
+			</footer>
+		</section>
+	</div>
+	<script src="./script/index.js"></script>
+</body>
+
+</html>
