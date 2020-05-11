@@ -1,7 +1,12 @@
 .elements__like-button {
+	width: 20.76px;
+	min-height: 20px;
+	background-image: url(../../../images/LIKE-LOGO.svg);
+	background-position: center;
+	background-repeat: no-repeat;
 	background-color: white;
-	border: none;
 	margin: 0 10px 0 auto;
+	border: none;
 	cursor: pointer;
 }
 

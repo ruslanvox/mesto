@@ -4,11 +4,13 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0 auto;
+	margin: 0 auto 36.25px;
 	padding: 45px 0 0 0;
 	width: 68.75%;
 	max-width: 1200px;
 	min-width: 300px;
+	border-bottom: 1px solid #545454;
+	;
 }
 
 @media screen and (max-width: 320px) {

@@ -4,20 +4,14 @@
 const popup = document.querySelector('.popup');
 const profileEditButton = document.querySelector('.profile__edit-button');
 
-//Функция появления всплывающего меню 
-
-function openPopupMenu() {
-	popup.classList.add('popup_opened');
-}
-
 //Константа для закрытия окна
 
 const editButtonClose = document.querySelector('.popup__close');
 
-//Функция убирания всплывающего окна
-function closePopupMenu() {
-	popup.classList.remove('popup_opened');
-}
+
+//Константа для сохранения введенных данных
+
+const saveButton = document.querySelector('.popup__save-button');
 
 
 //Переменные для редактирования всплывающего окна
@@ -25,13 +19,20 @@ function closePopupMenu() {
 let formElement = document.querySelector('.popup__content');
 let profileName = document.querySelector('.profile__title-text');
 let profileOccupation = document.querySelector('.profile__subtitle-text');
-let nameInput = document.querySelector('.popup__input-edit-name');
-let jobInput = document.querySelector('.popup__input-edit-about');
+let nameInput = document.querySelector('.popup__input_edit-name');
+let jobInput = document.querySelector('.popup__input_edit-about');
 
-//Получили значения для переменных
 
-nameInput.value = profileName.textContent;
-jobInput.value = profileOccupation.textContent;
+//Функция появления всплывающего меню 
+
+function openClosePopupMenu() {
+	popup.classList.toggle('popup_opened');
+	if (popup.classList.contains('popup_opened')) {
+		nameInput.value = profileName.textContent;
+		jobInput.value = profileOccupation.textContent;
+	};
+
+}
 
 
 //Обработчик отправки формы
@@ -40,21 +41,17 @@ function formSubmitHandler(evt) {
 	evt.preventDefault();
 	profileName.textContent = nameInput.value;
 	profileOccupation.textContent = jobInput.value;
-	closePopupMenu();
+	openClosePopupMenu();
 
 }
-
-//Константа для сохранения введенных данных
-
-const saveButton = document.querySelector('.popup__save-button');
 
 //Слушатели
 
 formElement.addEventListener('submit', formSubmitHandler);
 
-profileEditButton.addEventListener('click', openPopupMenu);
+profileEditButton.addEventListener('click', openClosePopupMenu);
 
-editButtonClose.addEventListener('click', closePopupMenu);
+editButtonClose.addEventListener('click', openClosePopupMenu);
 
 
 

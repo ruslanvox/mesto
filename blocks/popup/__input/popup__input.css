@@ -1,3 +1,5 @@
+@import url(./_edit-about/popup__input_edit-about.css);
+@import url(./_edit-name/popup__input_edit-name.css);
 .popup__input {
 	width: 358px;
 	height: 27.30px;
