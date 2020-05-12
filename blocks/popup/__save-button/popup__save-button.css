@@ -10,12 +10,11 @@
 	border-radius: 7px;
 	width: 100%;
 	color: white;
-	cursor: pointer;
+	border: none;
 }
 
 .popup__save-button:hover {
 	background: rgba(0, 0, 0, 0.8);
 	color: rgba(255, 255, 255, 0.8);
-	opacity: 0.5;
-	transition: opacity 0.3s;
+	cursor: pointer;
 }
