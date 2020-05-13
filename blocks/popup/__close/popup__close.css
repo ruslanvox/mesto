@@ -8,11 +8,18 @@
 	cursor: pointer;
 	outline: none;
 	border: none;
-	background-image: url(../../../images/CLOSE-ICON.svg);
+	background-image: url(../../../images/close-icon.svg);
 	background-size: contain;
 }
 
 .popup__close:hover {
 	opacity: .6;
 	transition: opacity 0.5s;
+}
+
+@media screen and (max-width: 464px) {
+	.popup__close {
+		top: -50px;
+		right: -10px;
+	}
 }
