@@ -9,11 +9,6 @@ const profileEditButton = document.querySelector('.profile__edit-button');
 const editButtonClose = document.querySelector('.popup__close');
 
 
-//Константа для сохранения введенных данных
-
-const saveButton = document.querySelector('.popup__save-button');
-
-
 //Переменные для редактирования всплывающего окна
 
 let formElement = document.querySelector('.popup__content');
