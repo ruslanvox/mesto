@@ -32,7 +32,7 @@
 
 		<!--+++++++Карточки пользователя+++++++++-->
 
-		<section class="elements">
+		<!-- <section class="elements">
 
 			<div class="elements__card">
 				<img class="elements__pic" src="./images/New-York.jpg" alt="Нью-Йорк">
@@ -82,14 +82,30 @@
 				</div>
 			</div>
 
-		</section>
+		</section> -->
 
 		<footer class="footer">
 			<p class="footer__text">&copy;2020 Mesto Russia</p>
 		</footer>
 
+		<!--+++++++Окно добавления карточки+++++++++-->
 
-		<!--+++++++Форма всплывающего окна+++++++++-->
+		<section class="popup-add">
+			<div class="popup-add__content">
+				<button type="button" class="popup-add__close"></button>
+				<h3 class="popup-add__title">Новое место</h3>
+				<form method="POST" action="#" class="popup-add__form" name="profile">
+					<input class="popup-add__input popup-add__input_edit-name" name="name" type="text" placeholder="Название"
+						required>
+					<input class="popup-add__input popup-add__input_edit-about" name="about" type="text"
+						placeholder="Ссылка на картинку" required>
+					<button type="submit" aria-label="Сохранить" class="popup__save-button">Создать</button>
+				</form>
+			</div>
+		</section>
+
+
+		<!--+++++++Окно редактирования информации+++++++++-->
 
 		<section class="popup">
 			<div class="popup__content">

@@ -1,0 +1,18 @@
+@import url(./__close/popup-add__close.css);
+@import url(./__content/popup-add__content.css);
+@import url(./__form/popup-add__form.css);
+@import url(./__input/popup-add__input.css);
+@import url(./__save-button/popup-add__save-button.css);
+@import url(./__title/popup-add__title.css);
+.popup-add {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, .5);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+}
