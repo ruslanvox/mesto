@@ -1,0 +1,17 @@
+@import url(./__description/element__description.css);
+@import url(./__like-pic/element__like-pic.css);
+@import url(./__like-button/element__like-button.css);
+@import url(./__pic/element__pic.css);
+@import url(./__title/element__title.css);
+@import url(./_delete-icon/element__delete-icon.css);
+.element {
+	width: 280px;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	position: relative;
+}
+
+.element:hover {
+	cursor: pointer;
+}

@@ -32,17 +32,7 @@
 
 		<!--+++++++Карточки пользователя+++++++++-->
 
-		<section class="elements">
-
-			<!-- <div class="elements__card">
-				<img class="elements__pic" src="./images/New-York.jpg" alt="Нью-Йорк">
-				<div class="elements__description">
-					<h3 class="elements__title">Нью-Йорк</h3>
-					<button type="button" aria-label="Лайк" class="elements__like-button"></button>
-				</div>
-			</div> -->
-
-		</section>
+		<section class="elements"></section>
 
 		<footer class="footer">
 			<p class="footer__text">&copy;2020 Mesto Russia</p>
@@ -50,16 +40,17 @@
 
 		<!--+++++++Окно добавления карточки+++++++++-->
 
-		<section class="popup-add">
-			<div class="popup-add__content">
-				<button type="button" class="popup-add__close"></button>
-				<h3 class="popup-add__title">Новое место</h3>
-				<form method="POST" action="#" class="popup-add__form" name="profile">
-					<input class="popup-add__input popup-add__input_edit-name" name="name" type="text" placeholder="Название"
+		<section class="popup popup_card">
+			<div class="popup__content popup__content_add_card">
+				<button type="button" class="popup__close popup__close_add_card"></button>
+				<h3 class="popup__title">Новое место</h3>
+				<form method="POST" action="#" class="popup__form popup__form_add_card" name="cards">
+					<input class="popup__input popup__input_add_name" name="name" type="text" placeholder="Название"
 						required>
-					<input class="popup-add__input popup-add__input_edit-about" name="about" type="text"
+					<input class="popup__input popup__input_add_place" name="about" type="text"
 						placeholder="Ссылка на картинку" required>
-					<button type="submit" aria-label="Сохранить" class="popup__save-button">Создать</button>
+					<button type="submit" aria-label="Сохранить"
+						class="popup__save-button popup__save-button_add_card">Создать</button>
 				</form>
 			</div>
 		</section>
@@ -67,20 +58,45 @@
 
 		<!--+++++++Окно редактирования информации+++++++++-->
 
-		<section class="popup">
-			<div class="popup__content">
-				<button type="button" class="popup__close"></button>
+		<section class="popup popup_profile">
+			<div class="popup__content popup__content_profile">
+				<button type="button" class="popup__close popup__close_profile"></button>
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<form method="POST" action="#" class="popup__form" name="profile">
+				<form method="POST" action="#" class="popup__form popup__form_profile" name="profile">
 					<input class="popup__input popup__input_edit-name" name="name" type="text" placeholder="Имя" required>
 					<input class="popup__input popup__input_edit-about" name="about" type="text" placeholder="О себе"
 						required>
-					<button type="submit" aria-label="Сохранить" class="popup__save-button">Сохранить</button>
+					<button type="submit" aria-label="Сохранить"
+						class="popup__save-button popup__save-button_profile">Сохранить</button>
 				</form>
 			</div>
 		</section>
 
+		<!--+++++++Окно увеличения картинки popup+++++++++-->
+
+		<section class="popup popup_pic">
+			<div class="popup__container popup__container_pic">
+				<img class="popup__image" src="" , alt="">
+				<button type="button" class="popup__close popup__close_image"></button>
+				<p class="popup__name"></p>
+			</div>
+		</section>
+
 	</div>
+
+
+
+	<template id="cards-template">
+		<div class="element">
+			<img class="element__pic" src="" alt="">
+			<div class="element__description">
+				<h3 class="element__title"></h3>
+				<button type="button" aria-label="Лайк" class="element__like-button"></button>
+			</div>
+			<button type="button" class="element__delete-icon"></button>
+		</div>
+	</template>
+
 	<script src="./script/index.js"></script>
 </body>
 
