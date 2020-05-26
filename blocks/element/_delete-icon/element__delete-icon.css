@@ -14,3 +14,9 @@
 .element:hover .element__delete-icon {
 	display: block;
 }
+
+@media screen and (max-width: 768px) {
+	.element__delete-icon {
+		display: block;
+	}
+}
