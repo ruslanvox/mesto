@@ -25,15 +25,6 @@ const initialCards = [
 	}
 ];
 
-// Карточки, загружаемые по умолчанию 
-
-initialCards.forEach(element => {
-	name = element.name;
-	link = element.link;
-	createCard(name, link);
-});
-
-
 // Функция добавления карточки в DOM 
 
 function createCard(name, link) {
@@ -57,24 +48,26 @@ function createCard(name, link) {
 		popupPicName.textContent = name;
 	})
 	document.querySelector('.elements').prepend(cardElement); // добавляем карточку в текущий массив (заметим, что prepend добавляет карточку в начало списка, тогда как append - в конец)
-
-
 }
+
+// Карточки, загружаемые по умолчанию 
+
+initialCards.forEach(element => {
+	const name = element.name;
+	const link = element.link;
+	createCard(name, link);
+});
 
 const popupContainer = document.querySelector('.popup_pic');
 const popupPic = document.querySelector('.popup__image');
 const popupPicName = document.querySelector('.popup__name');
 const popupPicCloseButton = document.querySelector('.popup__close_image');
 
-function popupPicClose() {
-	popupContainer.classList.toggle('popup_opened');
-}
-popupPicCloseButton.addEventListener('click', popupPicClose);
+
 
 
 //--------------------ДОБАВЛЕНИЕ КАРТОЧЕК--------------------------------
-const popupCard = document.querySelector('.popup_card');
-const userSubmitButton = document.querySelector('.popup__save-button_add_card');
+
 const userFormAdd = document.querySelector('.popup__content_add_card');
 
 function submitUserCardHandler(evt) { // функция-обработчик submit
@@ -87,9 +80,8 @@ function submitUserCardHandler(evt) { // функция-обработчик sub
 	picInput.value = '';
 	openClosePopupAddMenu(); // при нажатии submit функция обработчик выполнит функцию закрыть меню модального окна
 	createCard(name, link); // при нажатии submit функция выполнит функцию создания карточки
-
-
 }
+
 // Слушатели для редактирования карточки
 userFormAdd.addEventListener('submit', submitUserCardHandler); // слушатель для создания новой карточки
 
@@ -106,11 +98,11 @@ const editButtonClose = document.querySelector('.popup__close_profile'); // за
 //Константы для всплывающего окна ADD
 
 const popupAdd = document.querySelector('.popup_card'); // забрали значения для добавления модификатора к popup-add
-const сardButtonOpen = document.querySelector('.profile__add-button'); // забрали значения для открытия окна добавления карточки
+const cardButtonOpen = document.querySelector('.profile__add-button'); // забрали значения для открытия окна добавления карточки
 
 //Константа для закрытия окна ADD
 
-const сardButtonClose = document.querySelector('.popup__close_add_card'); // забрали значения для закрытия окна добавления карточки
+const cardButtonClose = document.querySelector('.popup__close_add_card'); // забрали значения для закрытия окна добавления карточки
 
 // Функция открытия и закрытия окна добавления карточки
 
@@ -119,27 +111,33 @@ function openClosePopupAddMenu() {
 
 }
 
+function popupPicClose() {
+	popupContainer.classList.toggle('popup_opened');
+}
+
+
+function togglePopup(somePopup) {
+	somePopup.classlist.toggle('popup_opened');
+}
 
 //Переменные для редактирования всплывающего окна
 
-let formElement = document.querySelector('.popup__content_profile'); // забрали значения для добавления данных в форму
-let profileName = document.querySelector('.profile__title-text'); // забрали значения для изменения данных в имени пользователя
-let profileOccupation = document.querySelector('.profile__subtitle-text'); // забрали значения для изменения данных в occupation пользователя
-let nameInput = document.querySelector('.popup__input_edit-name'); // забрали значения для новых данных имени пользователя
-let jobInput = document.querySelector('.popup__input_edit-about'); // забрали значения для новой occupation пользователя
-
+const formElement = document.querySelector('.popup__content_profile'); // забрали значения для добавления данных в форму
+const profileName = document.querySelector('.profile__title-text'); // забрали значения для изменения данных в имени пользователя
+const profileOccupation = document.querySelector('.profile__subtitle-text'); // забрали значения для изменения данных в occupation пользователя
+const nameInput = document.querySelector('.popup__input_edit-name'); // забрали значения для новых данных имени пользователя
+const jobInput = document.querySelector('.popup__input_edit-about'); // забрали значения для новой occupation пользователя
 
 //Функция появления и убирания всплывающего меню 
 
 function openClosePopupMenu() {
-	popup.classList.toggle('popup_opened'); // добавляем либо убираем модификатор класса popup, чтобы открылось всплываюбщее меню
+	togglePopup(popup); // добавляем либо убираем модификатор класса popup, чтобы открылось всплываюбщее меню
 	if (popup.classList.contains('popup_opened')) { // условие - если класс содержит модификатор - то подставить в форму значения имени пользователя и рода занятий в форму при загрузке формы
 		nameInput.value = profileName.textContent;
 		jobInput.value = profileOccupation.textContent;
-	};
+	}
 
 }
-
 
 //Обработчик отправки формы - при нажатии submit поставить введенные значения имени пользователя и рода занятий в данные пользователя.
 
@@ -159,9 +157,11 @@ profileEditButton.addEventListener('click', openClosePopupMenu); // запуск
 
 editButtonClose.addEventListener('click', openClosePopupMenu); // запускаем функцию закрыть меню ( при нажатии закрывается меню)
 
-сardButtonOpen.addEventListener('click', openClosePopupAddMenu); // запускаем функцию открыть меню добавления карточек
+cardButtonOpen.addEventListener('click', openClosePopupAddMenu); // запускаем функцию открыть меню добавления карточек
 
-сardButtonClose.addEventListener('click', openClosePopupAddMenu); // запускаем функцию закрыть меню добавления карточек
+cardButtonClose.addEventListener('click', openClosePopupAddMenu); // запускаем функцию закрыть меню добавления карточек
+
+popupPicCloseButton.addEventListener('click', popupPicClose);
 
 
 
