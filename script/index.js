@@ -106,14 +106,7 @@ const cardButtonClose = document.querySelector('.popup__close_add_card'); // з�
 
 // Функция открытия и закрытия окна добавления карточки
 
-function openClosePopupAddMenu() {
-	popupAdd.classList.toggle('popup_opened'); // добавляем либо убираем модификатор класса popup, чтобы открылось всплываюбщее меню
 
-}
-
-function popupPicClose() {
-	popupContainer.classList.toggle('popup_opened');
-}
 
 
 function togglePopup(somePopup) {
