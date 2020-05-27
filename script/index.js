@@ -43,7 +43,7 @@ function createCard(name, link) {
 	});
 
 	cardElement.querySelector('.element__pic').addEventListener('click', function (evt) {
-		popupContainer.classList.toggle('popup_opened');
+		togglePopup(popupContainer);
 		popupPic.src = link;
 		popupPicName.textContent = name;
 	})
@@ -64,8 +64,6 @@ const popupPicName = document.querySelector('.popup__name');
 const popupPicCloseButton = document.querySelector('.popup__close_image');
 
 
-
-
 //--------------------ДОБАВЛЕНИЕ КАРТОЧЕК--------------------------------
 
 const userFormAdd = document.querySelector('.popup__content_add_card');
@@ -78,7 +76,7 @@ function submitUserCardHandler(evt) { // функция-обработчик sub
 	evt.preventDefault();
 	titleInput.value = '';
 	picInput.value = '';
-	openClosePopupAddMenu(); // при нажатии submit функция обработчик выполнит функцию закрыть меню модального окна
+	togglePopup(popupAdd); // при нажатии submit функция обработчик выполнит функцию закрыть меню модального окна
 	createCard(name, link); // при нажатии submit функция выполнит функцию создания карточки
 }
 
@@ -107,10 +105,8 @@ const cardButtonClose = document.querySelector('.popup__close_add_card'); // з�
 // Функция открытия и закрытия окна добавления карточки
 
 
-
-
 function togglePopup(somePopup) {
-	somePopup.classlist.toggle('popup_opened');
+	somePopup.classList.toggle('popup_opened');
 }
 
 //Переменные для редактирования всплывающего окна
@@ -150,11 +146,17 @@ profileEditButton.addEventListener('click', openClosePopupMenu); // запуск
 
 editButtonClose.addEventListener('click', openClosePopupMenu); // запускаем функцию закрыть меню ( при нажатии закрывается меню)
 
-cardButtonOpen.addEventListener('click', openClosePopupAddMenu); // запускаем функцию открыть меню добавления карточек
+cardButtonOpen.addEventListener('click', function () {
+	togglePopup(popupAdd);
+}); // запускаем функцию открыть меню добавления карточек
 
-cardButtonClose.addEventListener('click', openClosePopupAddMenu); // запускаем функцию закрыть меню добавления карточек
+cardButtonClose.addEventListener('click', function () {
+	togglePopup(popupAdd);
+}); // запускаем функцию закрыть меню добавления карточек
 
-popupPicCloseButton.addEventListener('click', popupPicClose);
+popupPicCloseButton.addEventListener('click', function () {
+	togglePopup(popupContainer);
+});
 
 
 
