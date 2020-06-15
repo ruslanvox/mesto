@@ -1,0 +1,19 @@
+.popup__error {
+	font-size: 12px;
+	line-height: 15px;
+	color: red;
+	opacity: 1;
+	margin-bottom: 20px;
+	height: 12px;
+	width: 100%;
+}
+
+@media screen and (max-width:504px) {
+	.popup__span-error {
+		font-size: 10px;
+	}
+}
+
+.popup__error:last-of-type {
+	margin-bottom: 0;
+}

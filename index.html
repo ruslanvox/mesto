@@ -44,11 +44,13 @@
 			<div class="popup__content popup__content_add_card">
 				<button type="button" class="popup__close popup__close_add_card"></button>
 				<h3 class="popup__title">Новое место</h3>
-				<form method="POST" action="#" class="popup__form popup__form_add_card" name="cards">
-					<input class="popup__input popup__input_add_name" name="name" type="text" placeholder="Название"
-						required>
-					<input class="popup__input popup__input_add_place" name="about" type="text"
-						placeholder="Ссылка на картинку" required>
+				<form method="POST" action="#" class="popup__form popup__form_add_card" name="cards" novalidate>
+					<input class="popup__input popup__input_add_name" placeholder="Название" type="text" name="place"
+						minlength="2" maxlength="30" id="nameplace" required>
+					<span class="popup__error" id="nameplace-error"></span>
+					<input class="popup__input popup__input_add_place" placeholder="Ссылка на картинку" type="url"
+						name="link" id="place" required>
+					<span class="popup__error" id="place-error"></span>
 					<button type="submit" aria-label="Сохранить"
 						class="popup__save-button popup__save-button_add_card">Создать</button>
 				</form>
@@ -62,10 +64,13 @@
 			<div class="popup__content popup__content_profile">
 				<button type="button" class="popup__close popup__close_profile"></button>
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<form method="POST" action="#" class="popup__form popup__form_profile" name="profile">
-					<input class="popup__input popup__input_edit-name" name="name" type="text" placeholder="Имя" required>
-					<input class="popup__input popup__input_edit-about" name="about" type="text" placeholder="О себе"
-						required>
+				<form method="POST" action="#" class="popup__form popup__form_profile" name="profile" novalidate>
+					<input class="popup__input popup__input_edit-name" placeholder="Мое имя" type="text" name="name"
+						minlength="2" maxlength="40" pattern="[A-Za-zА-ЯЁа-яё -]{1,}" id="name" required>
+					<span class="popup__error" id="name-error"></span>
+					<input class="popup__input popup__input_edit-about" placeholder="Обо мне" type="text" name="about"
+						minlength="2" maxlength="200" id="about" required>
+					<span class="popup__error" id="about-error"></span>
 					<button type="submit" aria-label="Сохранить"
 						class="popup__save-button popup__save-button_profile">Сохранить</button>
 				</form>
@@ -97,6 +102,7 @@
 		</div>
 	</template>
 
+	<script src="./script/validate.js"></script>
 	<script src="./script/index.js"></script>
 </body>
 

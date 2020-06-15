@@ -107,7 +107,10 @@ const cardButtonClose = document.querySelector('.popup__close_add_card'); // з�
 
 function togglePopup(somePopup) {
 	somePopup.classList.toggle('popup_opened');
+	document.addEventListener('keydown', closeByEsc);
 }
+
+
 
 //Переменные для редактирования всплывающего окна
 
@@ -124,6 +127,7 @@ function openClosePopupMenu() {
 	if (popup.classList.contains('popup_opened')) { // условие - если класс содержит модификатор - то подставить в форму значения имени пользователя и рода занятий в форму при загрузке формы
 		nameInput.value = profileName.textContent;
 		jobInput.value = profileOccupation.textContent;
+		document.addEventListener('keydown', closeByEsc);
 	}
 
 }
@@ -159,6 +163,17 @@ popupPicCloseButton.addEventListener('click', function () {
 });
 
 
+function closeByEsc(evt) {
+	if (evt.key === 'Escape') {
+		document.querySelector('.popup_opened').classList.remove('popup_opened');
+		document.removeEventListener('keydown', closeByEsc);
+	}
+};
+
+document.addEventListener('click', function (evt) {
+	evt.target.classList.remove('popup_opened');
+	evt.stopPropagation();
+});
 
 
 
