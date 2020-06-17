@@ -1,3 +1,4 @@
+
 const initialCards = [
 	{
 		name: 'Архыз',
@@ -128,6 +129,7 @@ function openClosePopupMenu() {
 		nameInput.value = profileName.textContent;
 		jobInput.value = profileOccupation.textContent;
 		document.addEventListener('keydown', closeByEsc);
+
 	}
 
 }
@@ -170,7 +172,7 @@ function closeByEsc(evt) {
 	}
 };
 
-document.addEventListener('click', function (evt) {
+document.addEventListener('mousedown', function (evt) {
 	evt.target.classList.remove('popup_opened');
 	evt.stopPropagation();
 });

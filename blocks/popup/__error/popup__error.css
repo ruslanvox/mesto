@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width:504px) {
-	.popup__span-error {
+	.popup__error {
 		font-size: 10px;
 	}
 }

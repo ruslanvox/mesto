@@ -1,5 +1,13 @@
+const arg = {
+	formSelector: '.popup__form',
+	inputSelector: '.popup__input',
+	submitButtonSelector: '.popup__save-button',
+	inactiveButtonClass: 'popup__save-button_inactive',
+	inputErrorClass: 'popup__input-button_border-error',
+	errorClass: '.popup__error_active'
+}
 
-
+// Вывод ошибки______________________________________________________________
 function showInputError(formElement, inputElement, errorMessage, arg) {
 	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 	inputElement.classList.add(arg.inputErrorClass);
@@ -7,7 +15,7 @@ function showInputError(formElement, inputElement, errorMessage, arg) {
 	errorElement.classList.add(arg.errorClass);
 };
 
-
+// Скрытие ошибки______________________________________________________________
 function hideInputError(formElement, inputElement, arg) {
 	const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 	inputElement.classList.remove(arg.inputErrorClass);
@@ -15,7 +23,7 @@ function hideInputError(formElement, inputElement, arg) {
 	errorElement.textContent = '';
 };
 
-
+// Функция валидации полей_____________________________________________________
 function inputValidity(formElement, inputElement, arg) {
 	if (!inputElement.validity.valid) {
 		showInputError(formElement, inputElement, inputElement.validationMessage, arg);
@@ -51,4 +59,4 @@ function handleFormInput(formElement, submitButton, inactiveButtonClass) {
 	submitButton.classList.toggle(inactiveButtonClass, hasErrors);
 }
 
-
+enableValidation(arg);
