@@ -34,7 +34,6 @@ function createCard(name, link) {
 	const cardElement = cardTemplate.cloneNode(true); // клонируем template 
 
 	cardElement.querySelector('.element__pic').src = link; // подставляем link, который будет вводить пользователь
-	cardElement.querySelector('.element__delete-icon')
 	cardElement.querySelector('.element__title').textContent = name; // подставляем name, который будет вводить пользователь
 	cardElement.querySelector('.element__like-button').addEventListener('click', function (evt) { // делаем лайк активным
 		evt.target.classList.toggle('element__like-button_active')
@@ -43,7 +42,7 @@ function createCard(name, link) {
 		evt.target.parentElement.remove();
 	});
 
-	cardElement.querySelector('.element__pic').addEventListener('click', function (evt) {
+	cardElement.querySelector('.element__pic').addEventListener('click', function () {
 		togglePopup(popupContainer);
 		popupPic.src = link;
 		popupPicName.textContent = name;
@@ -170,7 +169,7 @@ function closeByEsc(evt) {
 		document.querySelector('.popup_opened').classList.remove('popup_opened');
 		document.removeEventListener('keydown', closeByEsc);
 	}
-};
+}
 
 document.addEventListener('mousedown', function (evt) {
 	evt.target.classList.remove('popup_opened');
