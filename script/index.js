@@ -50,7 +50,7 @@ data.userFormAdd.addEventListener("submit", submitUserCardHandler);
 
 //Слушатели
 
-data.formElement.addEventListener("submit", profileFormSubmitHandler);
+data.profileForm.addEventListener("submit", profileFormSubmitHandler);
 
 data.profileEditButton.addEventListener("click", () => {
   data.openPopup(data.popupProfile);

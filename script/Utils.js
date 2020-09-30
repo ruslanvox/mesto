@@ -30,7 +30,7 @@ export function closePopup(somePopup) {
 
 //Переменные для редактирования всплывающего окна
 
-export const formElement = document.querySelector(".popup__content_profile");
+export const profileForm = document.querySelector(".popup__content_profile");
 export const profileName = document.querySelector(".profile__title-text");
 export const profileOccupation = document.querySelector(
   ".profile__subtitle-text"
