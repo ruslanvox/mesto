@@ -116,6 +116,8 @@ function profileFormSubmitHandler(evt) {
 const titleInput = document.querySelector(".popup__input_add_name");
 const picInput = document.querySelector(".popup__input_add_place");
 
+// Функция добавления новых данных и закрытия модального окна
+
 function submitUserCardHandler(evt) {
   const name = titleInput.value;
   const link = picInput.value;
