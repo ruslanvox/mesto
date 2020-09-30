@@ -1,4 +1,4 @@
-import * as data from "./Popup.js";
+import * as data from "./Utils.js";
 import { Card } from "./Card.js";
 import { FormValidator } from "./FormValidator.js";
 
@@ -36,35 +36,46 @@ const initialCards = [
 ];
 
 // Карточки, загружаемые по умолчанию
+const templateSelector = "#cards-template";
+const elementsContainer = document.querySelector(".elements");
 
 initialCards.forEach((element) => {
   const name = element.name;
   const link = element.link;
-  const templateSelector = "#cards-template";
   const temp = new Card(name, link, templateSelector);
-  document.querySelector(".elements").prepend(temp.element);
+  elementsContainer.prepend(temp.element);
 });
 
 data.userFormAdd.addEventListener("submit", submitUserCardHandler);
 
 //Слушатели
 
-data.formElement.addEventListener("submit", formSubmitHandler);
+data.formElement.addEventListener("submit", profileFormSubmitHandler);
 
-data.profileEditButton.addEventListener("click", data.openClosePopupMenu);
+data.profileEditButton.addEventListener("click", () => {
+  data.openPopup(data.popupProfile);
+  data.nameInput.value = data.profileName.textContent;
+  data.jobInput.value = data.profileOccupation.textContent;
+});
 
-data.editButtonClose.addEventListener("click", data.openClosePopupMenu);
+data.editButtonClose.addEventListener("click", () => {
+  data.closePopup(data.popupProfile);
+  data.nameInput.textContent = data.profileName.value;
+  data.jobInput.textContent = data.profileOccupation.value;
+});
 
 data.cardButtonOpen.addEventListener("click", function () {
-  data.togglePopup(data.popupAdd);
+  data.openPopup(data.popupAdd);
+  titleInput.value = "";
+  picInput.value = "";
 });
 
 data.cardButtonClose.addEventListener("click", function () {
-  data.togglePopup(data.popupAdd);
+  data.closePopup(data.popupAdd);
 });
 
 data.popupPicCloseButton.addEventListener("click", function () {
-  data.togglePopup(data.popupContainer);
+  data.closePopup(data.popupContainer);
 });
 
 document.addEventListener("mousedown", function (evt) {
@@ -95,23 +106,22 @@ const validateAddCard = new FormValidator(
 validateEditProfile.enableValidation();
 validateAddCard.enableValidation();
 
-function formSubmitHandler(evt) {
+function profileFormSubmitHandler(evt) {
   evt.preventDefault();
   data.profileName.textContent = data.nameInput.value;
   data.profileOccupation.textContent = data.jobInput.value;
-  data.openClosePopupMenu();
+  data.closePopup(data.popupProfile);
 }
 
+const titleInput = document.querySelector(".popup__input_add_name");
+const picInput = document.querySelector(".popup__input_add_place");
+
 function submitUserCardHandler(evt) {
-  const titleInput = document.querySelector(".popup__input_add_name");
-  const picInput = document.querySelector(".popup__input_add_place");
   const name = titleInput.value;
   const link = picInput.value;
-  const templateSelector = "#cards-template";
   evt.preventDefault();
-  titleInput.value = "";
-  picInput.value = "";
+
   const temp = new Card(name, link, templateSelector);
   document.querySelector(".elements").prepend(temp.element);
-  data.togglePopup(data.popupAdd);
+  data.closePopup(data.popupAdd);
 }

@@ -1,9 +1,10 @@
 import {
-  togglePopup,
+  openPopup,
+  closePopup,
   popupPic,
   popupPicName,
   popupContainer,
-} from "./Popup.js";
+} from "./Utils.js";
 export class Card {
   constructor(name, link, templateSelector) {
     this._name = name;
@@ -15,28 +16,31 @@ export class Card {
   get element() {
     return this._element;
   }
-  _toggleLikeButton(evt) {
-    evt.target.classList.toggle("element__like-button_active");
+  _toggleLikeButton() {
+    this._element
+      .querySelector(".element__like-button")
+      .classList.toggle("element__like-button_active");
   }
 
-  _toggleDeleteCard(evt) {
-    evt.target.parentElement.remove();
+  _toggleDeleteCard() {
+    this._element.remove();
+    this._element = null;
   }
   _toggleImagePopup() {
-    togglePopup(popupContainer);
+    openPopup(popupContainer);
     popupPic.src = this._link;
     popupPicName.textContent = this._name;
   }
   _setEventListeners() {
     this._element
       .querySelector(".element__like-button")
-      .addEventListener("click", (evt) => {
-        this._toggleLikeButton(evt);
+      .addEventListener("click", () => {
+        this._toggleLikeButton();
       });
     this._element
       .querySelector(".element__delete-icon")
-      .addEventListener("click", (evt) => {
-        this._toggleDeleteCard(evt);
+      .addEventListener("click", () => {
+        this._toggleDeleteCard();
       });
     this._element
       .querySelector(".element__pic")
@@ -47,9 +51,10 @@ export class Card {
 
   _createCard() {
     const cardTemplate = document.querySelector(this._templateSelector).content;
-    const cardElement = cardTemplate.cloneNode(true);
+    const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+    const cardPic = cardElement.querySelector(".element__pic");
     this._element = cardElement;
-    cardElement.querySelector(".element__pic").src = this._link;
+    cardPic.src = this._link;
     cardElement.querySelector(".element__title").textContent = this._name;
     this._setEventListeners();
     return cardElement;
