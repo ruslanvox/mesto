@@ -45,28 +45,23 @@ initialCards.forEach((element) => {
   document.querySelector(".elements").prepend(temp.element);
 });
 
-//--------------------ДОБАВЛЕНИЕ КАРТОЧЕК--------------------------------
-
-// Слушатели для редактирования карточки
-data.userFormAdd.addEventListener("submit", submitUserCardHandler); // слушатель для создания новой карточки
-
-//Константы для всплывающего окна EDIT
+data.userFormAdd.addEventListener("submit", submitUserCardHandler);
 
 //Слушатели
 
-data.formElement.addEventListener("submit", formSubmitHandler); // кнопка сохранить
+data.formElement.addEventListener("submit", formSubmitHandler);
 
-data.profileEditButton.addEventListener("click", data.openClosePopupMenu); // запускаем функцию открыть меню ( при нажатии открывается меню)
+data.profileEditButton.addEventListener("click", data.openClosePopupMenu);
 
-data.editButtonClose.addEventListener("click", data.openClosePopupMenu); // запускаем функцию закрыть меню ( при нажатии закрывается меню)
+data.editButtonClose.addEventListener("click", data.openClosePopupMenu);
 
 data.cardButtonOpen.addEventListener("click", function () {
   data.togglePopup(data.popupAdd);
-}); // запускаем функцию открыть меню добавления карточек
+});
 
 data.cardButtonClose.addEventListener("click", function () {
   data.togglePopup(data.popupAdd);
-}); // запускаем функцию закрыть меню добавления карточек
+});
 
 data.popupPicCloseButton.addEventListener("click", function () {
   data.togglePopup(data.popupContainer);
@@ -76,6 +71,8 @@ document.addEventListener("mousedown", function (evt) {
   evt.target.classList.remove("popup_opened");
   evt.stopPropagation();
 });
+
+// Валидация
 
 const validateOptions = {
   inputSelector: ".popup__input",
@@ -100,22 +97,21 @@ validateAddCard.enableValidation();
 
 function formSubmitHandler(evt) {
   evt.preventDefault();
-  profileName.textContent = nameInput.value;
-  profileOccupation.textContent = jobInput.value;
-  openClosePopupMenu();
+  data.profileName.textContent = data.nameInput.value;
+  data.profileOccupation.textContent = data.jobInput.value;
+  data.openClosePopupMenu();
 }
 
 function submitUserCardHandler(evt) {
-  // функция-обработчик submit
-  const titleInput = document.querySelector(".popup__input_add_name"); // обьявили константу для имени
-  const picInput = document.querySelector(".popup__input_add_place"); // обьявили константу для ссылки
-  const name = titleInput.value; // присвоили аргументу имени значение
-  const link = picInput.value; // присвоили аргументу ссылки значение
+  const titleInput = document.querySelector(".popup__input_add_name");
+  const picInput = document.querySelector(".popup__input_add_place");
+  const name = titleInput.value;
+  const link = picInput.value;
   const templateSelector = "#cards-template";
   evt.preventDefault();
   titleInput.value = "";
   picInput.value = "";
   const temp = new Card(name, link, templateSelector);
   document.querySelector(".elements").prepend(temp.element);
-  data.togglePopup(data.popupAdd); // при нажатии submit функция обработчик выполнит функцию закрыть меню модального окна
+  data.togglePopup(data.popupAdd);
 }

@@ -31,13 +31,11 @@ export class Card {
     this._element
       .querySelector(".element__like-button")
       .addEventListener("click", (evt) => {
-        // делаем лайк активным
         this._toggleLikeButton(evt);
       });
     this._element
       .querySelector(".element__delete-icon")
       .addEventListener("click", (evt) => {
-        // делаем активной иконку удаления
         this._toggleDeleteCard(evt);
       });
     this._element
@@ -48,11 +46,11 @@ export class Card {
   }
 
   _createCard() {
-    const cardTemplate = document.querySelector(this._templateSelector).content; // забрали значения у созданного в HTML template
-    const cardElement = cardTemplate.cloneNode(true); // клонируем template
+    const cardTemplate = document.querySelector(this._templateSelector).content;
+    const cardElement = cardTemplate.cloneNode(true);
     this._element = cardElement;
-    cardElement.querySelector(".element__pic").src = this._link; // подставляем link, который будет вводить пользователь
-    cardElement.querySelector(".element__title").textContent = this._name; // подставляем name, который будет вводить пользователь
+    cardElement.querySelector(".element__pic").src = this._link;
+    cardElement.querySelector(".element__title").textContent = this._name;
     this._setEventListeners();
     return cardElement;
   }
