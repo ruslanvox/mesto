@@ -60,14 +60,13 @@ data.profileEditButton.addEventListener("click", () => {
 
 data.editButtonClose.addEventListener("click", () => {
   data.closePopup(data.popupProfile);
-  data.nameInput.textContent = data.profileName.value;
-  data.jobInput.textContent = data.profileOccupation.value;
 });
 
 data.cardButtonOpen.addEventListener("click", function () {
   data.openPopup(data.popupAdd);
   titleInput.value = "";
   picInput.value = "";
+  data.userFormAdd.classList.add(".popup__save-button_inactive");
 });
 
 data.cardButtonClose.addEventListener("click", function () {
@@ -79,8 +78,10 @@ data.popupPicCloseButton.addEventListener("click", function () {
 });
 
 document.addEventListener("mousedown", function (evt) {
-  evt.target.classList.remove("popup_opened");
-  evt.stopPropagation();
+  if (evt.target.classList.contains("popup_opened")) {
+    data.closePopup(document.querySelector(".popup_opened"));
+    evt.stopPropagation();
+  }
 });
 
 // Валидация
@@ -124,6 +125,6 @@ function submitUserCardHandler(evt) {
   evt.preventDefault();
 
   const temp = new Card(name, link, templateSelector);
-  document.querySelector(".elements").prepend(temp.element);
+  elementsContainer.prepend(temp.element);
   data.closePopup(data.popupAdd);
 }

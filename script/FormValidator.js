@@ -38,6 +38,7 @@ export class FormValidator {
     const buttonElement = profileForm.querySelector(
       validateOptions.submitButtonSelector
     );
+
     this._handleFormInput(
       profileForm,
       buttonElement,

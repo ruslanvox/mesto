@@ -1,6 +1,6 @@
 import {
   openPopup,
-  closePopup,
+  userFormAdd,
   popupPic,
   popupPicName,
   popupContainer,
@@ -55,7 +55,9 @@ export class Card {
     const cardPic = cardElement.querySelector(".element__pic");
     this._element = cardElement;
     cardPic.src = this._link;
+    cardPic.alt = this._name;
     cardElement.querySelector(".element__title").textContent = this._name;
+    userFormAdd.classList.add(".popup__save-button_inactive");
     this._setEventListeners();
     return cardElement;
   }

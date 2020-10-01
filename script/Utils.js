@@ -4,6 +4,9 @@ export const popupPicName = document.querySelector(".popup__name");
 export const popupPicCloseButton = document.querySelector(
   ".popup__close_image"
 );
+export const popupCardSaveButton = document.querySelector(
+  ".popup__save-button"
+);
 
 export const userFormAdd = document.querySelector(".popup__content_add_card");
 
@@ -25,6 +28,8 @@ export function openPopup(somePopup) {
 }
 export function closePopup(somePopup) {
   somePopup.classList.remove("popup_opened");
+  popupCardSaveButton.disabled = true;
+  popupCardSaveButton.classList.add("popup__save-button_inactive");
   document.removeEventListener("keydown", closeByEsc);
 }
 
@@ -40,7 +45,6 @@ export const jobInput = document.querySelector(".popup__input_edit-about");
 
 export function closeByEsc(evt) {
   if (evt.key === "Escape") {
-    document.querySelector(".popup_opened").classList.remove("popup_opened");
-    document.removeEventListener("keydown", closeByEsc);
+    closePopup(document.querySelector(".popup_opened"));
   }
 }
