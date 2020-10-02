@@ -28,8 +28,6 @@ export function openPopup(somePopup) {
 }
 export function closePopup(somePopup) {
   somePopup.classList.remove("popup_opened");
-  popupCardSaveButton.disabled = true;
-  popupCardSaveButton.classList.add("popup__save-button_inactive");
   document.removeEventListener("keydown", closeByEsc);
 }
 

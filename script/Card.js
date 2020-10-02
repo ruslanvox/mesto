@@ -57,7 +57,6 @@ export class Card {
     cardPic.src = this._link;
     cardPic.alt = this._name;
     cardElement.querySelector(".element__title").textContent = this._name;
-    userFormAdd.classList.add(".popup__save-button_inactive");
     this._setEventListeners();
     return cardElement;
   }

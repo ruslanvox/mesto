@@ -66,7 +66,8 @@ data.cardButtonOpen.addEventListener("click", function () {
   data.openPopup(data.popupAdd);
   titleInput.value = "";
   picInput.value = "";
-  data.userFormAdd.classList.add(".popup__save-button_inactive");
+  data.popupCardSaveButton.disabled = true;
+  data.popupCardSaveButton.classList.add("popup__save-button_inactive");
 });
 
 data.cardButtonClose.addEventListener("click", function () {
